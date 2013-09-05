@@ -21,8 +21,3 @@ class UserAdmin(UserAdmin):
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-
-#class MyUser(AbstractBaseUser):
-    #name = m.CharField()
-    #height = m.FloatField()
-    #USERNAME_FIELD = 'name'
