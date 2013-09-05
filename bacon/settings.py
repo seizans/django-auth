@@ -109,11 +109,39 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'app1',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.twitter',
 )
 
 # For auth
 #AUTH_USER_MODEL = 'app1.MyUser'
 AUTH_PROFILE_MODULE = 'app1.Profile'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    'allauth.account.context_processors.account',
+    'allauth.socialaccount.context_processors.socialaccount',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+#SOCIALACCOUNT_PROVIDERS = {
+    #'facebook': {
+        #'SCOPE': ['email', 'publish_stream'],
+        #'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        #'METHOD': 'oauth2',
+        #'LOCALE_FUNC': lambda request: 'ja_JP'
+    #},
+#}
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
