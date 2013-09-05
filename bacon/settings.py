@@ -111,6 +111,10 @@ INSTALLED_APPS = (
     'app1',
 )
 
+# For auth
+#AUTH_USER_MODEL = 'app1.MyUser'
+AUTH_PROFILE_MODULE = 'app1.Profile'
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
