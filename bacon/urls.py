@@ -5,9 +5,9 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
-    # Examples:
     # url(r'^$', 'bacon.views.home', name='home'),
     # url(r'^bacon/', include('bacon.foo.urls')),
+    url(r'^app1/', include('app1.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
