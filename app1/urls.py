@@ -14,4 +14,5 @@ urlpatterns = patterns(
     url(r'^tweet_media$', views.tweet_media),
     url(r'^face$', views.face),
     url(r'^facepost$', views.facepost),
+    url(r'^face_image$', views.face_image),
 )

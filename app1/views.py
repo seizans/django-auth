@@ -68,3 +68,11 @@ def facebook_graph(user):
     token = m.SocialToken.objects.get(app=app, account=account)
     graph = facebook.GraphAPI(token.token)
     return graph
+
+
+def face_image(request):
+    graph = facebook_graph(request.user)
+    with open('/Users/seizans/Downloads/picture.jpg') as image:
+        message = 'message with image to facebook'
+        graph.put_photo(image, message)
+    return render_to_response('app1/page1.html')
