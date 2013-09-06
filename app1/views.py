@@ -1,8 +1,9 @@
 # encoding=utf-8
 from django.shortcuts import render_to_response
 import facebook
-import twitter
 import allauth.socialaccount.models as m
+
+import app1.twitter as twitter
 
 
 def page1(request):
@@ -22,6 +23,16 @@ def tweet(request):
     message = 'twitter post test'
     poststatus = api.PostUpdate(message)
     print poststatus
+    return render_to_response('app1/page1.html')
+
+
+def tweet_media(request):
+    account = request.user.socialaccount_set.get()
+    api = twitter_api(account)
+    message = 'media post test'
+    media = '/Users/seizans/Downloads/picture.jpg'
+    status = api.PostMedia(message, media)
+    print status
     return render_to_response('app1/page1.html')
 
 
