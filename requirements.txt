@@ -1,0 +1,8 @@
+facebook-sdk
+django
+django-allauth
+python-twitter
+
+httpie
+ipython
+flake8
