@@ -11,4 +11,5 @@ urlpatterns = patterns(
     url(r'^log$', login_required(
         TemplateView.as_view(template_name='app1/page1.html'))),
     url(r'^tweet$', views.tweet),
+    url(r'^face$', views.face),
 )
