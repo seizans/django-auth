@@ -57,8 +57,9 @@ def face(request):
 
 def facepost(request):
     graph = facebook_graph(request.user)
-    message = 'From facepost'
-    graph.put_object('me', 'feed', message=message)
+    message = 'From facepost \n\n url \n hoge'
+    link = 'http://docs.python.jp/2/library/index.html'
+    graph.put_object('me', 'feed', message=message, link=link)
     return render_to_response('app1/page1.html')
 
 
