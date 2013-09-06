@@ -12,4 +12,5 @@ urlpatterns = patterns(
         TemplateView.as_view(template_name='app1/page1.html'))),
     url(r'^tweet$', views.tweet),
     url(r'^face$', views.face),
+    url(r'^facepost$', views.facepost),
 )

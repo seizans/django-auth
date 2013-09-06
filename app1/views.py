@@ -30,10 +30,22 @@ def tweet(request):
 
 
 def face(request):
-    account = request.user.socialaccount_set.get()
-    app = m.SocialApp.objects.get(provider='facebook')
-    token = m.SocialToken.objects.get(app=app, account=account)
-    graph = facebook.GraphAPI(token.token)
+    graph = facebook_graph(request.user)
     profile = graph.get_object('me')
     print profile
     return render_to_response('app1/page1.html')
+
+
+def facepost(request):
+    graph = facebook_graph(request.user)
+    message = 'From facepost'
+    graph.put_object('me', 'feed', message=message)
+    return render_to_response('app1/page1.html')
+
+
+def facebook_graph(user):
+    account = user.socialaccount_set.get()
+    app = m.SocialApp.objects.get(provider='facebook')
+    token = m.SocialToken.objects.get(app=app, account=account)
+    graph = facebook.GraphAPI(token.token)
+    return graph
