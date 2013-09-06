@@ -7,6 +7,8 @@ from app1 import views
 
 urlpatterns = patterns(
     '',
+    url(r'^accounts/profile/',
+        TemplateView.as_view(template_name='profile.html')),
     url(r'^page1$', views.page1),
     url(r'^log$', login_required(
         TemplateView.as_view(template_name='app1/page1.html'))),
