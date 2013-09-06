@@ -15,6 +15,17 @@ def page1(request):
 
 def tweet(request):
     account = request.user.socialaccount_set.get()
+    api = twitter_api(account)
+    status = api.GetUserTimeline(user_id=account.uid)
+    for s in status:
+        print s.text
+    message = 'twitter post test'
+    poststatus = api.PostUpdate(message)
+    print poststatus
+    return render_to_response('app1/page1.html')
+
+
+def twitter_api(account):
     app = m.SocialApp.objects.get(provider='twitter')
     token = m.SocialToken.objects.get(app=app, account=account)
     api = twitter.Api(
@@ -23,10 +34,7 @@ def tweet(request):
         access_token_key=token.token,
         access_token_secret=token.token_secret,
     )
-    status = api.GetUserTimeline(user_id=account.uid)
-    for s in status:
-        print s.text
-    return render_to_response('app1/page1.html')
+    return api
 
 
 def face(request):
