@@ -138,6 +138,8 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 
+AUTH_USER_MODEL = 'app1.MyUser'
+
 #SOCIALACCOUNT_PROVIDERS = {
     #'facebook': {
         #'SCOPE': ['email', 'publish_stream'],
