@@ -132,7 +132,13 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'YOUR GMAIL ADDRESS'
+EMAIL_HOST_PASSWORD = 'YOUR GMAIL PASSWORD'
+EMAIL_PORT = 587
 
 #SOCIALACCOUNT_PROVIDERS = {
     #'facebook': {
