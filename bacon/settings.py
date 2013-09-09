@@ -136,8 +136,6 @@ ACCOUNT_EMAIL_VERIFICATION = 'optional'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'YOUR GMAIL ADDRESS'
-EMAIL_HOST_PASSWORD = 'YOUR GMAIL PASSWORD'
 EMAIL_PORT = 587
 
 #SOCIALACCOUNT_PROVIDERS = {
@@ -177,3 +175,8 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from local_settings import *  # NOQA
+except ImportError:
+    pass
