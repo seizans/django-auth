@@ -26,8 +26,21 @@ class SignupForm(forms.ModelForm):
             print x
         return self.cleaned_data
 
-    def save(self, user):
-        print('HOGEHOGHEOGHEOHGOEHGOEHGOEHGOE')
-        user.date_of_birth = self.cleaned_data['date_of_birth']
-        user.save()
-        return user
+
+"""
+from allauth.account.adapter import DefaultAccountAdapter
+
+
+class MyAccountAdapter(DefaultAccountAdapter):
+    print "MY ACCOUNT"
+
+    def new_user(self, username=None, first_name=None, last_name=None,
+                 email=None):
+        print 'HOGEEEEEEEEEEEEEEEEEEEEEEEEEEE'
+
+    def save_user(self, request, user, form, commit=True):
+        print "SAVE USERRRRR"
+        data = form.cleaned_data
+        for d in data:
+            print d
+"""

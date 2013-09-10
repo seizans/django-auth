@@ -132,6 +132,7 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
+#ACCOUNT_ADAPTER = 'app1.forms.MyAccountAdapter'
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_SIGNUP_FORM_CLASS = 'app1.forms.SignupForm'
 #ACCOUNT_USER_MODEL_EMAIL_FIELD = 'email'  # default

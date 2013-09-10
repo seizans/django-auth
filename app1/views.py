@@ -8,6 +8,15 @@ import allauth.socialaccount.models as m
 import app1.twitter as twitter
 from .forms import MyForm
 
+from allauth.account.views import SignupView
+from .forms import SignupForm
+
+
+class MySignupView(SignupView):
+    template_name = 'signup2.html'
+    form_class = SignupForm
+    success_url = '/admin/'
+
 
 class MyView(CreateView):
     template_name = 'signup.html'
