@@ -1,9 +1,18 @@
 # encoding=utf-8
 from django.shortcuts import render_to_response
+from django.views.generic.edit import CreateView
+
 import facebook
 import allauth.socialaccount.models as m
 
 import app1.twitter as twitter
+from .forms import MyForm
+
+
+class MyView(CreateView):
+    template_name = 'signup.html'
+    form_class = MyForm
+    success_url = '/app1/sign'
 
 
 def page1(request):
