@@ -10,14 +10,16 @@ from .forms import MyForm
 
 from allauth.account.views import ConfirmEmailView, SignupView
 from .forms import SignupForm
+from django.template import RequestContext
 
 
 class MyConfirmEmailView(ConfirmEmailView):
     def get_template_names(self):
-        if self.request.method == 'POST':
-            return ['email_confirmed.html']
-        else:
-            return ['email_confirm.html']
+        return ['email_confirm.html']
+        #if self.request.method == 'POST':
+            #return ['email_confirmed.html']
+        #else:
+            #return ['email_confirm.html']
 
 
 class MySignupView(SignupView):
@@ -37,7 +39,10 @@ def page1(request):
         print request.user.profile.height
     else:
         print 'does not have profile'
-    return render_to_response('app1/page1.html')
+    return render_to_response(
+        'app1/page1.html',
+        context_instance=RequestContext(request)
+    )
 
 
 def tweet(request):

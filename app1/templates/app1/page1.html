@@ -1,3 +1,17 @@
 <body>
+
+{% if messages %}
+<p>
+    <strong>MESSAGES:</strong>
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+</p>
+{% else %}
+<h1>メッセージはありませんよ！！！</h1>
+{% endif %}
+
     <h2>HELLO</h2>
 </body>
