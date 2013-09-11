@@ -1,2 +1,1 @@
-{% load i18n %}
-{% blocktrans %}You have confirmed {{email}}.{% endblocktrans %}
+メールアドレス {{ email }} を確認し、本登録を完了しました。
