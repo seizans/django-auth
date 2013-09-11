@@ -14,7 +14,6 @@ from django.template import RequestContext
 
 
 class MySignupView(SignupView):
-    template_name = 'signup2.html'
     form_class = SignupForm
     success_url = '/admin/'
 
