@@ -9,7 +9,7 @@ urlpatterns = patterns(
     # url(r'^$', 'bacon.views.home', name='home'),
     # url(r'^bacon/', include('bacon.foo.urls')),
     url(r'^app1/', include('app1.urls')),
-    url(r'^accounts/', include('allauth.urls')),
+    #url(r'^accounts/', include('allauth.urls')),
     url(r'^accounts/profile/',
         TemplateView.as_view(template_name='profile.html')),
 

@@ -4,14 +4,16 @@ from django.views.generic import TemplateView
 
 from app1 import views
 from .views import MyConfirmEmailView, MyView, MySignupView
+from allauth.account.views import login
 
 
 urlpatterns = patterns(
     '',
     url(r'^confirm_email/(?P<key>\w+)/$', MyConfirmEmailView.as_view(),
-        name='my_account_confirm_email'),
+        name='account_confirm_email'),
     url(r'^sign$', MyView.as_view()),
     url(r'^signup$', MySignupView.as_view()),
+    url(r'^login$', login, name='account_login'),
     url(r'^page1$', views.page1),
     url(r'^log$', login_required(
         TemplateView.as_view(template_name='app1/page1.html'))),
