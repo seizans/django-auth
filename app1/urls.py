@@ -3,13 +3,13 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 
 from app1 import views
-from .views import MyConfirmEmailView, MyView, MySignupView
-from allauth.account.views import login
+from .views import MyView, MySignupView
+from allauth.account.views import login, confirm_email
 
 
 urlpatterns = patterns(
     '',
-    url(r'^confirm_email/(?P<key>\w+)/$', MyConfirmEmailView.as_view(),
+    url(r'^confirm_email/(?P<key>\w+)/$', confirm_email,
         name='account_confirm_email'),
     url(r'^sign$', MyView.as_view()),
     url(r'^signup$', MySignupView.as_view()),

@@ -8,18 +8,9 @@ import allauth.socialaccount.models as m
 import app1.twitter as twitter
 from .forms import MyForm
 
-from allauth.account.views import ConfirmEmailView, SignupView
+from allauth.account.views import SignupView
 from .forms import SignupForm
 from django.template import RequestContext
-
-
-class MyConfirmEmailView(ConfirmEmailView):
-    def get_template_names(self):
-        return ['email_confirm.html']
-        #if self.request.method == 'POST':
-            #return ['email_confirmed.html']
-        #else:
-            #return ['email_confirm.html']
 
 
 class MySignupView(SignupView):
