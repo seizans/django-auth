@@ -117,9 +117,6 @@ INSTALLED_APPS = (
 )
 
 # For auth
-#AUTH_USER_MODEL = 'app1.MyUser'
-AUTH_PROFILE_MODULE = 'app1.Profile'
-
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
