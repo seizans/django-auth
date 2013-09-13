@@ -1,6 +1,7 @@
 facebook-sdk
 django
 django-allauth
+django-debug-toolbar
 python-twitter
 
 httpie
