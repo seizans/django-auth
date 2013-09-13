@@ -149,6 +149,8 @@ EMAIL_PORT = 587
 
 AUTH_USER_MODEL = 'app1.MyUser'
 
+LOGIN_REDIRECT_URL = '/app1/page1'
+
 #SOCIALACCOUNT_PROVIDERS = {
     #'facebook': {
         #'SCOPE': ['email', 'publish_stream'],
