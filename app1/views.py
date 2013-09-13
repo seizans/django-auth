@@ -11,6 +11,25 @@ from .forms import MyForm
 from allauth.account.views import SignupView
 from .forms import SignupForm
 from django.template import RequestContext
+from allauth.socialaccount import views as social
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+
+
+class SocialSignupView(social.SignupView):
+    """
+    ログインしている場合のみSNS signup ができて、
+    ログイン中のユーザにSNSアカウントを関連付ける、
+    という挙動にしたい。
+    """
+    form_class = SignupForm
+
+    def dispatch(self, request, *args, **kwargs):
+        self.sociallogin = request.session.get('app1_sociallogin')
+        if not self.sociallogin:
+            return HttpResponseRedirect(reverse('account_login'))
+        return super(social.SignupView, self).dispatch(
+            request, *args, **kwargs)
 
 
 class MySignupView(SignupView):
