@@ -86,7 +86,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'bacon.urls'
@@ -116,7 +115,6 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.twitter',
-    'debug_toolbar',
 )
 
 
@@ -189,35 +187,9 @@ LOGGING = {
     }
 }
 
-# For django-debug-toolbar
-INTERNAL_IPS = ('127.0.0.1',)
-DEBUG_TOOLBAR_PANELS = (
-    'debug_toolbar.panels.version.VersionDebugPanel',
-    'debug_toolbar.panels.timer.TimerDebugPanel',
-    'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
-    'debug_toolbar.panels.headers.HeaderDebugPanel',
-    'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
-    'debug_toolbar.panels.template.TemplateDebugPanel',
-    'debug_toolbar.panels.sql.SQLDebugPanel',
-    'debug_toolbar.panels.signals.SignalDebugPanel',
-    'debug_toolbar.panels.logger.LoggingPanel',
-)
-
-
-def custom_show_toolbar(request):
-    return True  # Always show toolbar, for example purposes only.
-
-DEBUG_TOOLBAR_CONFIG = {
-    'INTERCEPT_REDIRECTS': False,
-    'SHOW_TOOLBAR_CALLBACK': custom_show_toolbar,
-    # 'EXTRA_SIGNALS': ['myproject.signals.MySignal'],
-    'HIDE_DJANGO_SQL': False,
-    'TAG': 'div',
-    'ENABLE_STACKTRACES': True,
-}
-
-
 try:
     from local_settings import *  # NOQA
+    MIDDLEWARE_CLASSES += LOCAL_MIDDLEWARE_CLASSES
+    INSTALLED_APPS += LOCAL_INSTALLED_APPS
 except ImportError:
     pass
